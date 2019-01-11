@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="securityUserDetailsService" class="com.xxx.springstruts.web.service.SecurityUserDetailsService">
+    </bean>
+    <sec:http pattern="/" security="none"/>
+    <sec:http pattern="/css/*" security="none"/>
+    <sec:http pattern="/js/*" security="none"/>
+    <sec:http auto-config="true" authentication-manager-ref="authenticationManager">
+        <!-- 
+        <sec:intercept-url pattern="/**" access="hasRole('admin')"/>
+         -->
+        <sec:intercept-url pattern="/**" access="isAuthenticated()"/>
+        <sec:form-login
+        		login-page="/"
+        		login-processing-url="/login"
+         		default-target-url="/admin/admin!index.action"
+         		authentication-failure-url="/"
+         		username-parameter="username"
+         		password-parameter="password"
+        />
+        <sec:headers disabled="true"/>
+        <sec:logout logout-url="/logout" logout-success-url="/"/>
+        <sec:csrf disabled="true"/>        
+    </sec:http>
+    <sec:authentication-manager id="authenticationManager">
+    	<sec:authentication-provider user-service-ref="securityUserDetailsService"/>
+    </sec:authentication-manager>
+</beans>

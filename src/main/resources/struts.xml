@@ -7,14 +7,12 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
 	<constant name="struts.convention.action.mapAllMatches" value="true"/>
 	<constant name="struts.convention.package.locators" value="action"/>
-	<!--  
-	<constant name="struts.convention.result.path" value="/WEB-INF/template"/>
-	-->
 	<constant name="struts.objectFactory" value="spring"/>
+	<constant name="struts.convention.relative.result.types" value="freemarker"/>
 	<package name="springstruts" extends="struts-default">
 	     <global-allowed-methods>regex:.*</global-allowed-methods>
 	     <action name="index">
-	        <result>/index.jsp</result>
+	        <result type="freemarker">/index.html</result>
 	     </action>
 	</package>
 </struts>

@@ -1,8 +1,9 @@
 package com.xxx.springstruts.web.entity;
-
 import java.util.Date;
-
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,6 +16,9 @@ public class User extends BaseEntity{
 	private String mobile;
 	private Date lastLoginTime;
 	private Integer status;
+	@OneToOne
+	@JoinTable(name="xx_user_role",joinColumns= {@JoinColumn(name="user_id")},inverseJoinColumns= {@JoinColumn(name="role_id")})
+	private Role role;
 	public String getUsername() {
 		return username;
 	}
@@ -44,6 +48,12 @@ public class User extends BaseEntity{
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 }
