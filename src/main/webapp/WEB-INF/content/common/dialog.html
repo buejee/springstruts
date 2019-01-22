@@ -1,0 +1,28 @@
+<script type="text/template" id="dialog-template">
+<div class='dialog'>
+	<div class='dialog-title'>{{type | typeFilter }}提示</div>
+	<div class='dialog-content'><span class='icon icon-{{type}}'></span>
+		{{message}}
+	</div>
+	<div class='dialog-buttons'>
+          <input class='btn btn-primary' type=button value='确定' />
+          <input class='btn btn-default' type=button value='取消' />
+    </div>
+</div>
+<div class='mask'></div>
+</script>
+<script type="text/template" id="dialog-upload-template">
+<div class="dialog dialog-upload">
+    <div class="dialog-title">文件上传</div>
+    <div class="dialog-content">
+        <form name="upload-form">
+             <input type="hidden"/>
+             <input type="file" id="uploadfile" name="uploadfile"/>
+        </form>
+    </div>
+    <div class='dialog-buttons'>
+          <input class='btn btn-primary' type=button value='确定' />
+          <input class='btn btn-default' type=button value='取消' />
+    </div>
+</div>
+</script>

@@ -8,23 +8,39 @@
     </head>
 	<body>	
 		<div id="container">
-			<h2>this page is freemarker</h2>
-			  <div class="box">
-			  	 <form action="login" method="post">
-			      	<div>
-			      	    <label>用户名：</label>
-			      		<input type="text" name="username"/>
-			      	</div>
-			      	<div>
-			      	    <label>密码：</label>
-			      		<input type="password" name="password"/>
-			      	</div>
-			      	<div>
-			      		<input type="submit" value="登录"/>
-			      		<input type="reset" value="取消"/>
-			      	</div>
-			      </form>
-			  </div>    
+			  <header>
+			  	  <div class="logo">XXX科技有限公司数据管理系统</div>
+			  </header>
+			  <main class="content">
+			      <div class="box login-box">
+				     <h2 class="box-title">用户登录</h2>
+				  	 <form action="login" method="post">
+				      	<div class="box-item">
+				      	    <label>用户名：</label>
+				      		<input type="text" name="username"/>
+				      	</div>
+				      	<div class="box-item">
+				      	    <label>密码：</label>
+				      		<input type="password" name="password"/>
+				      	</div>
+				      	<div class="box-item submit-item">
+				      		<input class="btn btn-primary" type="submit" value="登录"/>
+				      		<input class="btn" type="reset" value="取消"/>
+				      	</div>
+				      </form>
+				  </div> 
+			  </main>
+			  <footer class="footer">
+					<div class="sub-foot">
+						<ul>
+							<li><a>法律条款</a></li>
+							<li><a>隐私保护</a></li>
+							<li><a>联系我们</a></li>
+							<li><a>常见问题</a></li>
+						</ul>
+						<p>版权所有@1998-2018联想集团</p>
+					</div>
+				</footer> 
 		</div>
 	</body>
 </html>

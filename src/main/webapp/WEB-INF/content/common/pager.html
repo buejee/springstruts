@@ -1,0 +1,16 @@
+<script type="text/template" id="pager-template">
+<div id="pager" class="pager">
+    <div class="icon icon-first"></div>
+    <div class="icon icon-pre"></div>
+    <ul class="list-num">
+        {{each list as item }}
+            <li>
+              <span data-page="{{item}}" class="page-number{{if item == currentPage }} page-active{{/if}}">{{item}}</span>
+            </li>
+        {{/each}}
+    </ul>
+    <div class="icon icon-next"></div>
+    <div class="icon icon-last"></div>
+    <div class="icon icon-fresh"></div>
+</div>
+</script>

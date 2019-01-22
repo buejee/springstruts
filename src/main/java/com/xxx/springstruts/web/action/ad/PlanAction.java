@@ -16,4 +16,8 @@ public class PlanAction {
 		log.info("user : "+user.getUsername());
 		return "list";
 	}
+	
+	public String upload() {
+		return "upload";
+	}
 }

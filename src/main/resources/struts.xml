@@ -10,7 +10,10 @@
 	<constant name="struts.objectFactory" value="spring"/>
 	<constant name="struts.convention.relative.result.types" value="freemarker"/>
 	<package name="springstruts" extends="struts-default">
+	     <!--  
 	     <global-allowed-methods>regex:.*</global-allowed-methods>
+	     -->
+	     <global-allowed-methods>execute,input,back,cancel,browse,save,delete,list,index,upload</global-allowed-methods>
 	     <action name="index">
 	        <result type="freemarker">/index.html</result>
 	     </action>
