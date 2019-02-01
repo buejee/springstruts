@@ -2,10 +2,9 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>admin</title>
+		<title>文件列表</title>
 		<link rel="stylesheet" type="text/css" href="${base}/css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="${base}/css/public.css"/>
-		<link rel="stylesheet" type="text/css" href="${base}/css/font/iconfont.css"/>
 	</head>
 	<body>
 	   <div id="container">
@@ -15,20 +14,18 @@
 		            <section class="grid-right">
 		                <article class="table-list clearfix">
 		                    <div class="list-head">
-								<div class="anticon searchbox clearfix">
+							    <h2>查询条件</h2>
+								<div class="searchbox clearfix">
 								   <form name="search-form">
-								       <div class="search-wrap fr">
-									   		<input type="text" name="keyword" class="" id="search"/>
-									   </div>
-									   <div class="disk-tool fl">
-									       <div class="upload-wrap">
-									       		<input id="upload" class="file-ele" type="file" name="upload" />
-									       		<div class="btn-upload"><em class="icon icon-upload"></em>&nbsp;上传</div>									       		
-									       </div>
-									       <div class="btn-create-folder"><em class="icon icon-addfolder"></em>&nbsp;新建文件夹</div>
-									   </div>
+								       <input type="hidden" name="searchBy" value="task_name"/>								   							   
+									   <label>文件名称：</label><input type="text" name="keyword"/>
 									   <!--  
-									   <a class="btn-add fr" href="${base}/ad/edit/">新建广告<span class="icon icon-add"></span></a>			   
+									   <label>开始日期：</label><input type="date" name="task_startdate"/>
+									   <label>结束日期：</label><input type="date" name="task_enddate"/>
+									   -->
+									   <input type="button" value="查询" class="btn btn-primary" id="searchBtn"/>
+									   <a class="btn-add fr" href="${base}/ad/plan!upload">新建上传<span class="icon icon-add"></span></a>
+									   <!--  
 									   <a class="btn-add fr" id="batchImportBtn">批量上传</a>
 									   -->
 								   </form>
@@ -39,9 +36,8 @@
 		                           <ul class="table-head">
 		                                <li class="list-item">
 		                                   <span class="head-column col-small"><input type="checkbox" id="checkall"/>全选</span>
-		                                   <span  class="head-column col-xx-large">名称</span>
-		                                   <span  class="head-column col-normal">大小</span>
-		                                   <span  class="head-column col-large">创建时间</span>
+		                                   <span  class="head-column col-xx-large">ID</span>
+		                                   <span  class="head-column col-normal">文件名称</span>
 		                                   <span  class="head-column col-x-large">操作</span>
 		                                 </li>
 		                            </ul>
@@ -63,13 +59,11 @@
      {{each list as item}}
         <li class="list-item">
              <span class="head-column col-small"><input type="checkbox" id="{{item.id}}" name="ids"/></span>
-             <span class="head-column col-xx-large">{{item.name}}</span>
-             <span class="head-column col-normal">{{item.size}}</span>     
-             <span class="head-column col-large">{{item.create_date | xx:'yyyy-MM-dd hh:mm:ss'}}</span>
+             <span class="head-column col-xx-large">{{item.id}}</span>
+             <span class="head-column col-normal">{{item.name}}</span>
              <span class="head-column col-x-large">
-                   <a class="item-edit" href="${base}/ad/edit?id={{item.id}}">重命名</a>
-                   <a class="item-download" data-id="{{item.id}}">下载</a>
-                   <a class="item-delete" data-id="{{item.id}}">删除</a>
+                   <a class="item-delete" data-id="{{item.id}}">下载</a>
+				   <a href="http://127.0.0.1:8080/springstruts/ad/plan!download.action?fileName={{item.name}}">download</a>
              </span>
         </li>
       {{/each}}
@@ -82,7 +76,5 @@
 	<script type="text/javascript" src="${base}/js/libs/template.js"></script>
 	<script type="text/javascript" src="${base}/js/common/utils.js"></script>
 	<script type="text/javascript" src="${base}/js/common/table_list.js"></script>
-	<script type="text/javascript" src="${base}/js/main/ad_list.js"></script>
-	<script type="text/javascript" src="${base}/js/common/accordion.js"></script>
-	<script type="text/javascript" src="${base}/js/main/admin.js"></script>
+	<script type="text/javascript" src="${base}/js/ad/ad_list.js"></script>
 </html>

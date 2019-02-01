@@ -7,10 +7,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.convention.annotation.ParentPackage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+@ParentPackage("springstruts")
 public class BaseAction {
+	protected String path = "";
 	public String ajax(Object object) {
 		PrintWriter out = null;	
 		try {
@@ -43,5 +45,13 @@ public class BaseAction {
 	
 	public Map<String, Object> getResultMap(Object value){
 		return getResultMap(200, value);
+	}
+	
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
+	public String getPath() {
+		return path;
 	}
 }

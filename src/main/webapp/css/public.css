@@ -4,8 +4,8 @@ html,body{height:100%;}
 .fl{float:left;}
 .fr{float:right;}
 #container{position:relative;height: auto !important;min-height: 100%;}
-header{background: #F7F7F7;width:100%;height: 57px;border-bottom: 1px solid #DDDDDD;}
-main{padding-bottom:70px;}
+header{background: #F7F7F7;width:100%;height: 57px;border-bottom: 1px solid #95b8e7;}
+main{padding-bottom:50px;}
 .logo{margin-left:20px;height:57px;line-height:57px;cursor:pointer;}
 .user-info{margin-right:20px;}
 .user-info a{text-decoration:none;color:#000;cursor:pointer;}
@@ -13,20 +13,22 @@ main{padding-bottom:70px;}
 .logout{}
 
 .content{display:flex;}
-.content .grid-left{float:left;flex:none;border-right:1px solid #ddd;}
+.content .grid-left{float:left;flex:none;}
 .content .grid-right{flex:1;float:right;overflow:hidden;}
-.menu-left{width:160px;padding:20px;}
-.menu-left .menu-list{border:1px solid #e5e5e5;border-radius:4px;background:#F7F7F7;}
-.menu-item  .item-title{font-weight:bold;font-size:14px;height:40px;line-height:40px;cursor:pointer;padding:0 10px;background:#95b8E7;}
-.menu-item .sub-menu-list{margin:0 20px;}
+.menu-left{width:160px;}
+.menu-left:before{content:"";display: block;width: 159px;position: fixed;bottom:0;top:0;z-index:-1;border:1px solid #95b8e7;border-width: 0 1px 0 0;}
+.menu-left .menu-list{border:1px solid #95b8e7;border-radius:4px;background:#fff;}
+.menu-item  .item-title{font-weight:bold;font-size:14px;height:40px;line-height:40px;cursor:pointer;padding:0 10px;background:#e4eeff;border-top:1px solid #95b8e7;}
+.menu-item .sub-menu-list{border-top:1px solid #95b8e7;}
 .menu-item .sub-menu-list .sub-menu-item{cursor:pointer;text-indent:10px;}
-.menu-item .sub-menu-list .sub-menu-item a{display:block;height:24px;line-height:24px;}
+.menu-item .sub-menu-list .sub-menu-item a{display:block;height:26px;line-height:26px;}
+.menu-item .sub-menu-list .sub-menu-item a:hover{background:#eaf2ff;}
 .menu-item .icon{display:inline-block;width:16px;height:16px;line-height:16px;background:url(images/menu_arrows.png) no-repeat;position:relative;top:11px;}
-.menu-item .icon-menu-fold{}
-.menu-item .icon-menu-open{background-position:-32px 0;}
-.content .table-list{margin:10px;border:1px solid #e5e5e5;border-radius:2px;}
+.menu-item .icon-menu-fold{background-position:-16px 0;}
+.menu-item .icon-menu-open{}
+.content .table-list{border:1px solid #95b8e7;border-radius:2px;}
 .content .table-list .list-head{border-bottom:1px solid #ddd;}
-.content .table-list .list-head h2{height:28px;line-height:28px;background:#95b8E7;color:#0E2D5F;text-indent:10px;}
+.content .table-list .list-head h2{height:28px;line-height:28px;background:#e0ecff;color:#0E2D5F;text-indent:10px;border-bottom:1px solid #95b8e7;}
 .content .table-list .list-head .btn-add{display:inline-block;height:28px;line-height:28px;border:1px solid #e5e5e5;border-radius:4px;padding:0 5px;}
 
 .content .table-list .list-head .icon-add{display:inline-block;width:16px;height:16px;background:url(images/spinner_arrows.png) -32px 0;position:relative;top:3px;}
@@ -102,7 +104,34 @@ main{padding-bottom:70px;}
 .dialog-large .dialog-buttons input.btn-default{margin-left:20px;}
 .mask{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:999;opacity:0.5;}
 .toast{position:fixed;width:300px;text-align:center;padding:10px;height:40px;line-height:40px;margin-left:-160px;margin-top:-20px;left:50%;top:50%;border:1px solid #e5e5e5;border-radius:4px;background:#ff8000;color:#fff;font-size:14px;font-weight:bold;}
-.footer{position: absolute;bottom:0;height: 69px;border-top: 1px solid #cccccc;background:#f5f5f5;width: 100%;min-width:1000px;}
+.footer{position: absolute;bottom:0;height: 49px;border-top: 1px solid #cccccc;background:#f5f5f5;width: 100%;min-width:1000px;}
 .sub-foot{width: 1000px;margin: 0 auto;text-align: center;}
-.sub-foot ul,.sub-foot p{height: 30px;line-height: 30px;}
+.sub-foot ul,.sub-foot p{height: 24px;line-height: 24px;}
 .sub-foot ul li{display: inline-block;zoom: 1;*display: inline;*margin-left:5px;}
+/**upload*/
+.upload-wrap{
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	border:1px solid #2d78f4;
+	border-radius: 3px;
+}
+.upload-wrap .file-ele{
+	position: absolute;
+	top:0;
+	right:0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+}
+.upload-wrap .btn-upload{
+	width:90px;
+	height:30px;
+	line-height:30px;
+	text-align: center;
+	color:#fff;
+	background: #3385ff;
+}
+.icon{font-style:normal;}
+.btn-create-folder{color:#3b8cff;display:inline-block;border: 1px solid #c0d9fe;border-radius: 4px;height: 30px;line-height: 30px;padding:0 10px;vertical-align:top;cursor:pointer;}

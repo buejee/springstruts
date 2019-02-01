@@ -11,9 +11,6 @@
     <sec:http pattern="/css/*" security="none"/>
     <sec:http pattern="/js/*" security="none"/>
     <sec:http auto-config="true" authentication-manager-ref="authenticationManager">
-        <!-- 
-        <sec:intercept-url pattern="/**" access="hasRole('admin')"/>
-         -->
         <sec:intercept-url pattern="/**" access="isAuthenticated()"/>
         <sec:form-login
         		login-page="/"
@@ -25,9 +22,24 @@
         />
         <sec:headers disabled="true"/>
         <sec:logout logout-url="/logout" logout-success-url="/"/>
-        <sec:csrf disabled="true"/>        
+        <sec:csrf disabled="true"/>
+        <sec:session-management invalid-session-url="/" session-authentication-strategy-ref="sessionAuthenticationStrategy"/>        
     </sec:http>
+    <bean id="sessionAuthenticationStrategy"  class="org.springframework.security.web.authentication.session.CompositeSessionAuthenticationStrategy">
+         <constructor-arg>
+            <list>
+              <bean class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">
+                  <constructor-arg ref="sessionRegistry"/>
+              </bean>
+              <bean class="org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy"/>
+              <bean class="org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy">
+              	   <constructor-arg ref="sessionRegistry"/>
+              </bean>
+            </list>
+         </constructor-arg>
+    </bean>
+    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
     <sec:authentication-manager id="authenticationManager">
-    	<sec:authentication-provider user-service-ref="securityUserDetailsService"/>
+    	<sec:authentication-provider user-service-ref="securityUserDetailsService"/>    	
     </sec:authentication-manager>
 </beans>
