@@ -33,7 +33,6 @@ public class SecurityUserDetailsService implements UserDetailsService {
 	
 	public List<GrantedAuthority> getGrantedAuthorities(User user){
 		List<GrantedAuthority> list = new ArrayList<>();
-		System.out.println("user->role"+user.getRole().getName());
 		list.add(new SimpleGrantedAuthority(user.getRole().getName()));
 		return list;
 	}

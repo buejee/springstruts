@@ -16,22 +16,20 @@
 		                <article class="table-list clearfix">
 		                    <div class="list-head">
 								<div class="anticon searchbox clearfix">
-								   <form name="search-form">
-								       <div class="search-wrap fr">
-									   		<input type="text" name="keyword" class="" id="search"/>
-									   </div>
+								       <form name="search-form">
+									       <div class="search-wrap fr">
+										   		<input type="text" name="keyword" class="" id="search"/>
+										   </div>
+									   </form>
 									   <div class="disk-tool fl">
-									       <div class="upload-wrap">
-									       		<input id="upload" class="file-ele" type="file" name="upload" />
-									       		<div class="btn-upload"><em class="icon icon-upload"></em>&nbsp;上传</div>									       		
-									       </div>
-									       <div class="btn-create-folder"><em class="icon icon-addfolder"></em>&nbsp;新建文件夹</div>
+									       <form id="upload-form" method="post" enctype="multipart/form-data">
+										       <div class="upload-wrap">
+										       		<input id="upload" class="file-ele" type="file" name="upload" />
+										       		<div class="btn-upload"><em class="icon icon-upload"></em>&nbsp;上传</div>									       		
+										       </div>
+										       <div class="btn-create-folder"><em class="icon icon-addfolder"></em>&nbsp;新建文件夹</div>
+									       </form>	       
 									   </div>
-									   <!--  
-									   <a class="btn-add fr" href="${base}/ad/edit/">新建广告<span class="icon icon-add"></span></a>			   
-									   <a class="btn-add fr" id="batchImportBtn">批量上传</a>
-									   -->
-								   </form>
 								</div>
 							</div>
 		                    <div class="list-body">
